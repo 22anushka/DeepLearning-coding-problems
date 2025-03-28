@@ -14,3 +14,10 @@ def masked_attention(Q: np.ndarray, K: np.ndarray, V: np.ndarray, mask: np.ndarr
     attn = np.exp(attn) / attn.sum(axis=-1, keepdims=True)
     attn = attn @ V
     return attn
+
+"""
+With padding, ideally, you would just make use of the attention mask provided
+attention_mask = np.where(input_ids, 1, 0) # where input_ids are not equal to 0, i.e. the pad token, place 1 there, else place 0
+# the attention mask would be concat along the last dimension so that we get (batch_size, seq_len, d_model) shape for the attention mask
+# then apply the tril on the mask and then continue as normal
+"""
