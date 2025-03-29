@@ -7,5 +7,5 @@ def temp_sampling(logits, t=0.6):
   temp_scaled = np.exp((logits-stable_logits)/t)/np.sum((logits-stable_logits)/t)
 
   # can call sampling method given the probabilities from here
-  # greedy sampling
+  # random sampling
   return np.random.choice(len(temp_scaled), p=temp_scaled)
