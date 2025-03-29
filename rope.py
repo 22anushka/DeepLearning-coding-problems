@@ -1,3 +1,4 @@
+# from Umar Jamil's Youtube video on coding llama
 import numpy as np
 # can similarly be done in torch
 
